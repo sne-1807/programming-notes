@@ -1,0 +1,581 @@
+//Take three numbers from the user and print the greatest number.
+
+public class Greatest 
+{
+    Scanner in = new Scanner(System.in);
+    System.out.print("Enter first number");
+    int a = in.nextInt();
+
+    System.out.print("Enter second number");
+    int b = in.nextInt();
+
+    System.out.print("Enter third number");
+    int c = in.nextInt();
+
+    if(a>b && a>c)
+    {
+        System.out.print(a+" is the greatest");
+    }
+    else if(b>a && b>c)
+    {
+        System.out.print(b+" is the greatest");
+    }
+    else
+    {
+        System.out.print(c+" is the greatest");
+    }
+}
+
+//Write a Java program that keeps a number from the user
+//and generates an integer between 1 and 7 and displays the name of the weekday
+ 
+
+
+ Scanner in = new Scanner(System.in);
+ System.out.print("Enter number between 1 and 7");
+ int day = in.nextInt();
+
+ if (day>7 || day<0)
+ {
+     System.out.print("Enter valid number");
+ }
+ else
+ {
+     switch(day)
+     {
+         case 1:
+         System.out.println("Monday");
+         break;
+
+         case 2:
+         System.out.println("Tuesday");
+         break;
+
+         case 3:
+         System.out.println("Wednesday");
+         break;
+
+         case 4:
+         System.out.println("Thursday");
+         break;
+
+         case 5:
+         System.out.println("Friday");
+         break;
+
+         case 6:
+         System.out.println("Saturday");
+         break;
+
+         case 7:
+         System.out.println("Sunday");
+         break;
+     }
+ }
+
+
+// Write a Java program to find the number of days in a month (take month and year as input)
+
+import java.util.*;
+
+public class ThisIsMeTrying 
+{
+    public static void main(String[] args)
+    {
+        Scanner in = new Scanner (System.in);
+
+        //Take user input for month
+        System.out.print("Enter month name: ");
+        String month = in.next();
+        
+
+        //Check if user input for month is correct
+        if (!(month.equals("January")|| month.equals("February")||month.equals("March")||month.equals("April")||month.equals("May")||month.equals("June")||month.equals("July")||month.equals("August")||month.equals("September")||month.equals("October")||month.equals("November")||month.equals("December")))
+        {
+            System.out.println("ERROR: Enter valid month");
+            return;
+        }
+
+        //Take user input for year
+        System.out.print("Enter year: ");
+        int year = in.nextInt();
+
+        int count =0 ;
+        int var_yr = year ; 
+
+        //Check if user input for year is valid
+        //HELP HELP HELP HELP
+        if (year!=1)
+        {
+            while(var_yr<0)
+            {
+                var_yr=var_yr/10;
+                count++;
+            }
+             if (count<0 || count>4)
+             {
+                System.out.println("ERROR: Invalid year");
+                return;
+             }
+        }
+        
+        // START OF ACTUAL CODE
+        if (month.equals("January")||month.equals("March")||month.equals("May")||month.equals("Juy")||month.equals("August")||month.equals("October")||month.equals("December"))
+        {
+            System.out.println(("Number of days: 31"));
+        }
+        else if (month.equals("April")||month.equals("May")||month.equals("September")||month.equals("November"))
+        {
+            System.out.println("Number of days:30");
+        }
+        else
+        {
+            if(year%400==0||(year%4==0 && year%100!=0))
+            {
+                System.out.println(("Number of days:29"));
+            }
+            else
+            {
+                System.out.println("Number of days::30");
+            }
+        }
+
+
+        in.close();
+    }    
+}
+
+//Write a Java program that takes the user to provide a single character from the alphabet. Print Vowel or Consonant, depending on the user input.
+// If the user input is not a letter (between a and z or A and Z), or is a string of length > 1, print an error message.
+
+import java.util.*;
+
+public class ThisIsMeTrying 
+{
+    public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+
+        //Take user input for letter (Take as string):
+        System.out.print("Enter a character:");
+        String letter = in.next();
+
+        //Convert String input to char to get ASCII values
+        char temp_letter = letter.charAt(0);
+
+        //Check that length of string input = 1
+        if (letter.length()!=1)
+        {
+            System.out.println("ERROR: Enter single character!");
+            return;
+        } 
+
+        //Check that value is in ASCII range of A-Z and a-z
+        int ascii = (int) temp_letter; 
+        if ((97<= ascii && ascii<=122)||(65<=ascii && ascii<=90))
+        {
+            //Check if vowel or consonant(char needs to only be compared with == whereas String requires .equal() method
+            if(temp_letter=='a'||temp_letter=='e'||temp_letter=='i'||temp_letter=='o'||temp_letter=='u')
+            {
+                System.out.println(("This is a vowel!"));
+            }
+            else
+            {
+                System.out.println("This is a consonant!");
+            }
+        }
+
+        in.close();   
+    }
+
+}    
+
+//Write a program in Java to display the first n natural numbers
+
+import java.util.*;
+
+public class ThisIsMeTrying 
+{
+    public static void main(String[] args)
+    {
+       Scanner in = new Scanner(System.in);
+
+       //Take input from user
+       System.out.print("Enter a number:");
+       int n = in.nextInt();
+       int count=1;
+
+       while(count<=n)
+       {
+        System.out.println(count);
+        count++;
+       }
+    }        
+}
+
+//Write a program in Java to display the first n natural numbers and their sum
+
+import java.util.*;
+
+public class ThisIsMeTrying 
+{
+    public static void main(String[] args)
+    {
+       Scanner in = new Scanner(System.in);
+
+       //Take input from user
+       System.out.print("Enter a number:");
+       int n = in.nextInt();
+       int count=1;
+
+       //Print list of n natural numbers
+       while(count<=n)
+       {
+        System.out.println(count);
+        count++;
+       }
+
+       //Calculate sum of n natural numbers:
+       int temp=0;
+       int sum =0;
+       while (temp<=n)
+       {
+        sum+=temp;
+        temp+=1;
+       }
+       System.out.println("Sum of "+n+" natural numbers: "+sum);
+
+    }        
+}
+
+//Write a program in Java to display the cube of the number upto given an integer. 
+
+import java.util.*;
+
+public class ThisIsMeTrying 
+{
+    public static void main(String[] args)
+    {
+       Scanner in = new Scanner(System.in);
+
+       //Take input from user
+       System.out.print("Enter a number:");
+       int n = in.nextInt();
+       int count = 0;
+
+       while (count<=n)
+       {
+        System.out.println("The number is: "+count+" and it's cube is "+(count*count*count));
+        count++;
+       }
+    }        
+}
+
+//Write a program in Java to display the multiplication table of a given integer
+
+import java.util.*;
+
+public class ThisIsMeTrying 
+{
+    public static void main(String[] args)
+    {
+       Scanner in = new Scanner(System.in);
+
+       //Take input from user
+       System.out.print("Enter a number:");
+       int n = in.nextInt();
+       int count = 0;
+
+       while (count<=10)
+       {
+        System.out.println(n+" x "+count+"\t= "+"\t"+(n*count));
+        count++;
+       }
+    }        
+}
+
+//Write a program in Java to display the n terms of odd natural number and their sum
+
+import java.util.*;
+
+public class ThisIsMeTrying 
+{
+    public static void main(String[] args)
+    {
+       Scanner in = new Scanner(System.in);
+
+       //Take input from user
+       System.out.print("Enter a number:");
+       int n = in.nextInt();
+       int count=1;
+       
+
+       //Print n terms of odd natural number
+       while (count<=n)
+       {
+        System.out.println(count);
+        count+=2;
+       }
+
+       //Calculate sum of odd n natural numbers
+       int sum=0;
+       int counter=1;
+       while (counter<=n)
+       {
+        sum+=counter;
+        counter+=2;
+       }
+
+       //Print sum
+       System.out.println("Sum of "+n+" natural numbers: "+sum);
+
+       in.close();
+    }        
+}
+
+//Write a program in Java to display the pattern like right angle triangle with a *
+
+import java.util.*;
+
+public class ThisIsMeTrying 
+{
+    public static void main(String[] args)
+    {
+       Scanner in = new Scanner(System.in);
+       System.out.print("Enter number of rows:");
+       int rows = in.nextInt();
+
+        
+        for(int i=0;i<=rows;i++)
+        {
+        for (int j=0; j<=i;j++)
+        {
+            System.out.print("* ");
+        }
+        System.out.println();
+        }
+    }        
+}
+
+
+//Write a program in Java to display the pattern like 
+/*
+ * 1
+ * 12
+ * 123
+ * 1234
+ * 12345
+ */
+
+import java.util.*;
+
+public class ThisIsMeTrying 
+{
+    public static void main(String[] args)
+    {
+       Scanner in = new Scanner(System.in);
+       System.out.print("Enter number of rows:");
+       int rows = in.nextInt();
+
+        
+        for(int i=1;i<=rows;i++)
+        {
+        for (int j=1; j<=i;j++)
+        {
+            System.out.print(j);
+        }
+        System.out.println();
+        }
+    }        
+}
+
+
+//Write a program in Java to enter a number and count number of digits that number has
+
+import java.util.*;
+
+public class ThisIsMeTrying 
+{
+    public static void main(String[] args)
+    {
+       Scanner in = new Scanner(System.in);
+       System.out.print("Enter a number:");
+       int no = in.nextInt();
+       int count = 0;
+
+       while (no>1)
+       {
+        no=no/10;
+        count++;
+       } 
+    
+       System.out.println("Number of digits in the given number is: "+count);
+        
+    }        
+}
+
+//Write a program that accepts three numbers from the user and prints "increasing" if the numbers are in increasing order, 
+//"decreasing" if the numbers are in decreasing order, and "Neither increasing or decreasing order" otherwise
+
+import java.util.*;
+
+public class ThisIsMeTrying 
+{
+    public static void main(String[] args)
+    {
+       Scanner in = new Scanner(System.in);
+       System.out.print("Enter first number: ");
+       int x = in.nextInt();
+
+       System.out.print("Enter second number: ");
+       int y = in.nextInt();
+
+       System.out.print("Enter third number: ");
+       int z = in.nextInt();
+
+       if(x>y && x>z && y>z)
+       {
+        System.out.println("Numbers are in decreasing order");
+       } 
+       else if(z>x && z>y && y>x)
+       {
+        System.out.println("Numbers are in increasing order");
+       }
+       else
+       {
+        System.out.println("Numbers are in random order");
+       }
+
+        
+    }        
+}
+
+//Write a program that prompts the user to input a positive integer. It should then print the multiplication table
+//of that number
+
+package BCSE103E;
+
+import java.util.*;
+public class FourteenthMarch 
+{
+ public static void main(String[] args)
+ {
+    //Take input from user
+    Scanner in = new Scanner(System.in);
+    System.out.print("Enter a positive integer: ");
+    int num = in.nextInt();
+
+    //Initiliase count variable
+    int count = 0;
+
+    if(num>0)
+    {
+        while(count<=10)
+        {
+            System.out.println(num+" x "+count+"\t="+(num*count));
+            count++;
+        }
+    }
+    else
+    {
+        System.out.println("ERROR: You have entered a negative number");
+        return;
+    }
+    in.close();
+ }  
+}
+
+METHODS:
+/Use method to identify largest number amongst three numbers
+public class ThisIsMeTrying 
+{
+    public static void main(String[] args)
+    {
+        int x =60, y=45, z=51;
+        System.out.println("Largest Number is "+largeNum(x,y,z));
+    } 
+    
+    //The other method needs to be outside the main method
+    public static int largeNum(int a, int b, int c)
+    {
+        if(a>b && a>c)
+        {
+            return a;
+        }
+        else if (b>a && b>c)
+        {
+            return b;
+        }
+        else
+        {
+            return c;
+        }
+        
+        // NOTE: System.out.println can be given in the largeNum method itself
+        // return type of largeNum needs to be changed from int to void (**)
+        // instead of return a; return b; return c; I can give System.out.println("Largest number "+a); etc
+        // In the main method I would simply call the method without println method, just directly put largeNum(x,y,z);
+
+        //Or give the return value of the largeNum method to a particular variable
+        //i.e.: int num = largeNum(x,y,z)
+        //      System.out.println(num);
+
+//*******************
+
+        //Write Java Program to find number of vowels in a statement using method FindVowels
+
+import java.util.*;
+
+public class ThisIsMeTrying 
+{
+    public static void main(String[] args)
+    {
+        String a = "Welcome to Java";
+        FindVowels(a);
+    } 
+    
+    public static void FindVowels(String x)
+    {
+        int count = 0;
+        int temp = 0;
+        while (count<x.length())
+        {
+            if (x.charAt(count)=='a' ||x.charAt(count)=='e' || x.charAt(count)=='i' || x.charAt(count)=='o'|| x.charAt(count)== 'u')
+            {
+                temp++;
+            }
+            count++;
+        }
+        System.out.println("Vowels: "+temp);
+        
+    }
+}
+
+//If using scanner to take an input like "Hello World", it will only take the first word (which is Hello) if you use in.next()
+//Instead of next use nextLine() when taking input for whole string to be taken
+
+//MODIFYING AN ELEMENT IN AN ARRAY
+
+import java.util.*;
+
+public class ThisIsMeTrying 
+{
+    public static void main(String[] args)
+    {
+       int[] arr = {10,20,30};
+       int[] arr1 = changeArr(arr);
+
+       //Printing 1 particular element
+       System.out.println(arr1[0]);
+    } 
+    
+    public static int[] changeArr(int[] x)
+    {
+        x[0]=40;
+        return x;
+    }
+}
+
+
+
+
