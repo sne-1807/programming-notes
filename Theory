@@ -1,0 +1,6 @@
+java.lang.Math Library:
+
+  Math.round(num)   ---->  rounds decimal UP OR DOWN to nearest integer
+  Math.floor(num)   ---->  rounds decimal DOWN to nearest integer
+  Math.ceil(num)    ---->  rounds decimal UP to nearest integer
+  
