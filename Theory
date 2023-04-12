@@ -1,6 +1,33 @@
-java.lang.Math Library:
+1. java.lang.Math Library:
 
-  Math.round(num)   ---->  rounds decimal UP OR DOWN to nearest integer
-  Math.floor(num)   ---->  rounds decimal DOWN to nearest integer
-  Math.ceil(num)    ---->  rounds decimal UP to nearest integer
-  
+    Math.round(num)   ---->  rounds decimal UP OR DOWN to nearest integer
+    Math.floor(num)   ---->  rounds decimal DOWN to nearest integer
+    Math.ceil(num)    ---->  rounds decimal UP to nearest integer
+    Math.PI           ---->  provides pi value
+    Math.max(x,y)     ---->  gives larger of two values
+    Math.min(x,y)     ---->  gives smaller of two values
+    Math.sqrt(num)    ---->  gives square root of num
+    Math.abs(num)     ---->  returns absolute (+ve) value of num
+    Math.pow(x,y)     ---->  returns x^y value
+    Math.random()     ---->  returns random number b/w 1-10
+
+2. Conversions: 
+
+    String  to a) Integer: Integer.valueOf(String) (OR)  Integer.parseInt(String)
+               b) Double : Double.valueOf(String)  (OR)  Double.parseDouble(String)
+
+    Integer to a) String: Integer.toString(int)   (OR)  String.valueOf(int)
+    
+    Char    to a) Integer: (int) character;  converts to ASCII number of that character
+                            => To convert from ASCII into Integer number: subtract by 48
+                                i.e. ((int) character)-48
+                                
+                           (OR) Character.getNumericValue(char)
+               
+               b) String: Character.toString(char) (OR) String.valueOf(char)
+               
+               
+3. Decimal Formatting:
+    
+    printf()
+
