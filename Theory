@@ -52,8 +52,11 @@
     str.indexOf(ch, fromIndex)  ---->   returns index of first occurence of character in string from the fromIndex onwards (default=0)
     str.indexOf(s1, fromIndex)  ---->   returns index of first occurence of s1(substring) in string from the fromIndex onwards (default=0)
     str.lastIndexOf             ---->   same as previous two cases, except returns last occurence of string
-    
     str.split(regex, limit)     ---->   returns array of substring split by regex given ("-"," ","@"); limit controls number of output substrings returned
+    str.replace(oldChar, newChar)--->   returns string where all occurences of old character, replaced with new character
+    str.isEmpty()               ---->   checks whether string is empty or not (returns boolean output)
+    
+    str.reverse()               ---->   (available for StringBuffer class only) will reverse the string
     
 
 
