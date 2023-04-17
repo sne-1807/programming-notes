@@ -29,5 +29,31 @@
                
 3. Decimal Formatting:
     
-    printf()
+    String Formatting:
+        String str = String.format("%.2f", double) => format upto 2 decimal places
+        
+4. ARRAY METHODS:
+    
+
+5. STRING METHODS:
+    str.charAt(index)           ---->   returns character at specified index
+    str.length()                ---->   returns length of string
+    str.concat(s1)              ---->   returns new string that concatenates this string with s1
+    str.toUpperCase()           ---->   returns new string with all letter in uppercase
+    str.toLowerCase()           ---->   returns new string with all letters in lowercase
+    str.trim()                  ---->   returns string with leading and trailing whitespaces trimmed
+    str.equals(s1)              ---->   returns True if str equals s1 (case sensitive)
+    str.equalsIgnoreCase(s1)    ---->   returns True if str equals s1 (case INsensitive)
+    str.startsWith(prefix)      ---->   returns True if str starts with specified prefix
+    str.endsWith(suffix)        ---->   returns True if str ends with specified suffix
+    str.contains(s1)            ---->   returns True if str contains s1 substring
+    str.substring(begin,end)    ---->   extracts substring from string (beginIndex included, endIndex excluded)
+    str.toCharArray()           ---->   converts all characters of string into character array
+    str.indexOf(ch, fromIndex)  ---->   returns index of first occurence of character in string from the fromIndex onwards (default=0)
+    str.indexOf(s1, fromIndex)  ---->   returns index of first occurence of s1(substring) in string from the fromIndex onwards (default=0)
+    str.lastIndexOf             ---->   same as previous two cases, except returns last occurence of string
+    
+    str.split(regex, limit)     ---->   returns array of substring split by regex given ("-"," ","@"); limit controls number of output substrings returned
+    
+
 
