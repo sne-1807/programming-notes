@@ -1,0 +1,167 @@
+#include <stdio.h>  //
+#include <stdlib.h> //
+
+************************************************************************************************************
+
+// variable is a container which stores a particular value
+// for strings, have to make an array of characters by using the [] brackets, then type "" like normal string
+
+int main()
+{
+    char charName[] = "John";
+    printf(charName);
+}
+
+************************************************************************************************************
+Note: cannot directly print any integer or decimal point or string directly, must use format specifiers
+F-STRING: (format specifiers/access modifiers)
+     %s acts as a placeholder for a particular STRING to be inserted, the specified value will be after comma in the variable
+     %d acts as a placeholder for a particular INTEGER to be inserted, ""
+     %f acts as a placeholder for a particular DECIMAL NO. to be inserted, ""
+     %c acts as a placeholder for a particular character to be inserted
+EXAMPLE CODES:
+1. 
+int main()
+{
+    char charName[] = "Sneha";
+    printf("Her name is %s\n", charName);
+
+    int age = 18;
+    printf("Her age is %d",age);
+
+    return 0;
+}
+
+//Output:
+Her name is Sneha
+Her age is 18
+
+2.
+int main()
+{
+    printf("%d",5);
+    return 0;
+}
+
+//Output:
+5
+
+3.
+int main()
+{
+    printf("I ran %d km on %s",5, "Wednesday");
+    return 0;
+}
+
+//Output:
+I rand 5 km on Wednesday
+
+**IMP: ORDER that you specify the format specifiers (%d, %s) must be followed when entering what needs to put in its place after the commas
+************************************************************************************************************
+
+DATATYPES:
+    -> INTEGER:    int (whole no)
+    -> DOUBLE:     double (decimal no)
+    -> CHARACTERS: char (single value) => ' ' in single quotes
+    -> STRINGS:    char array (look at first example code for charName[])
+            e.g. char name[] = " " //insert your string in double quotes
+     
+************************************************************************************************************
+
+WORKING WITH NUMBERS
+
+    Operations:
+        printf("%f", 8.9+6.8);   //same goes with -,*,/
+            //Output: 15.700000
+
+    #include <math.h> // for complex operations such as power, sqrt, ceil, floor etc
+
+    1.
+    int main()
+    {
+        printf("%f", pow(2,3));
+    }
+
+    //Output:
+    8.000000
+
+    Others:
+        sqrt(16) ==> 4.000000
+        ceil, floor etc
+
+****************************************************************************************************************
+
+COMMENTS:
+
+    ==> Multiline comment:  /* 
+                                --comment-- 
+                            */
+    ==> Single line comment: // --comment-- 
+
+****************************************************************************************************************
+
+CONSTANT:
+    ==> can modify the value stored in a variable half way through the programme by reassigning a different value to it
+        e.g. int num = 5;
+            print("%d", num)   //output will be 5
+            int num = 8;
+            print("%d", num)   //output will be 8
+
+    ==> (***) if you want to ensure a variable cannot be modified (cannot change the value within it)
+        --> use keyword 'const' before specifying the datatype of variable
+
+        e.g. const int NUM = 5; //note: constants are normally all caps variable
+
+****************************************************************************************************************
+
+USER INPUT:
+    ==> scanf() function with & (pointer) in front of variable to store the input 
+
+        e.g. 
+        int main()
+            {
+                int age;
+                printf("Enter your age: ");
+                scanf("%d", &age); //Notice the & used when taking an input
+                printf("Your age is now %d", age);
+            }
+
+        Output: Enter your age: 9
+                Your age is now 9
+
+**IMPORTANT**
+    => %f and %lf
+        For printf, arguments of type float are promoted to double so both %f and %lf are used for double. 
+        For scanf, you should use %f for float and %lf for double
+
+        e.g.         
+        int main()
+        {
+            double gpa;
+            printf("Enter your GPA: ");
+            scanf("%lf", &gpa); //Notice the & used when taking an input
+                                //Note the %lf because i am taking double (if float use %f)
+            printf("Your GPA is now %f", gpa); //for printf(), can also use %lf for double
+        }
+
+        Output:
+            Enter your GPA: 8
+            Your GPA is now 8.000000
+
+ ==> Similarly, for character input just enter %c for both scanf() and printf
+ ==> For string:
+        int main()
+            {
+                char name[20] ; //Specify number of char to be in string
+                                //If not specifying value immediately, need to specify how many char needs to be stored
+                printf("Enter your name: ");
+                scanf("%s", name); //Note: no & needed for name
+                printf("Your name is %s", name); //for printf(), can also use %f for double
+            }
+
+        ==> Output: Enter your name: sneha
+                    Your name is sneha
+
+NOTE THAT SCANF CAN ONLY GET THE FIRST STRING OF YOUR NAME (E.G. AFTER SPACE WILL NOT GET THE REST)
+FOR THAT WE USE ANOTHER FUNCTION CALLED fgets(variable_name, max_no_of_acceptable_char)
+
