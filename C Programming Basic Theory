@@ -19,6 +19,7 @@ F-STRING: (format specifiers/access modifiers)
      %d acts as a placeholder for a particular INTEGER to be inserted, ""
      %f acts as a placeholder for a particular DECIMAL NO. to be inserted, ""
      %c acts as a placeholder for a particular character to be inserted
+
 EXAMPLE CODES:
 1. 
 int main()
@@ -130,7 +131,7 @@ USER INPUT:
                 Your age is now 9
 
 **IMPORTANT**
-    => %f and %lf
+    => %f and %lf :-
         For printf, arguments of type float are promoted to double so both %f and %lf are used for double. 
         For scanf, you should use %f for float and %lf for double
 
@@ -148,7 +149,8 @@ USER INPUT:
             Enter your GPA: 8
             Your GPA is now 8.000000
 
- ==> Similarly, for character input just enter %c for both scanf() and printf
+ ==> Similarly, for character input just enter %c for both scanf() and printf (stil need pointer)
+ 
  ==> For string:
         int main()
             {
@@ -163,5 +165,249 @@ USER INPUT:
                     Your name is sneha
 
 NOTE THAT SCANF CAN ONLY GET THE FIRST STRING OF YOUR NAME (E.G. AFTER SPACE WILL NOT GET THE REST)
-FOR THAT WE USE ANOTHER FUNCTION CALLED fgets(variable_name, max_no_of_acceptable_char)
+FOR THAT WE USE ANOTHER FUNCTION CALLED fgets(variable_name, max_no_of_char_from_user, stdin) which helps us store multiple words
 
+    e.g. int main()
+        {
+            char name[20] ; //Specify number of char to be in string
+                            //If not specifying value immediately, need to specify how many char needs to be stored
+            printf("Enter your name: ");
+            fgets(name , 20, stdin);
+            printf("Your name is %s", name); //for printf(), can also use %f for double
+        }
+
+    Output: Enter your name: Sneha Senthil
+            Your name is Sneha Senthil    
+
+
+ALTERNATIVELY TO USE SCANF FUNCTION FOR TWO STRINGS OF CHARACTERS WITH SPACE
+    ==> use 2 %s and split the variable 
+
+        e.g.
+        int main()
+            {
+                
+                char celeb_first[10];
+                char celeb_last[10];
+
+
+                printf("Enter celeb name: ");
+                scanf("%s%s", celeb_first, celeb_last);
+
+                printf("You're favourite celebrity is %s %s", celeb_first, celeb_last);
+
+                
+            }    
+
+        output:
+            Enter celeb name: Brad Pitt
+            Youre favourite celebrity is Brad Pitt
+
+****************************************************************************************************************
+ARRAYS: 
+    -> variable defines a container that stores on single value
+    -> array defines a container that stores n number of values
+
+    when creating an array, you need to specify the datatype the array will store
+    after arrayname put a []
+    store values seperated by ',' inside {}
+        e.g. int numArray[] = {1,2,3,4,5};
+
+    ACCESSING INDIVIDUAL ELEMENTS in ARRAY:
+    >> int numArray[] = {1,2,3,4,5};
+    >> printf("%d", numArray[2]);
+
+        output: 3
+    
+    MODIFYING INDIVIDUAL ELEMENTS in ARRAY:
+    >> numArray[2] = 20;
+    // changes the third element (3) in the array to 20
+
+    Sometimes, we will not know what needs to be inside an array, so we can create empty arrays and specify max number of elements in it
+    MUST define number of elements the array will hold
+    e.g. >> char charArray[10]; //we want ten elements tops in this array
+         >> charArray[0] = 'a'; //filling up the array 
+         >> charArray[1] = 'b';
+
+
+****************************************************************************************************************
+FUNCTIONS/METHOD: (mainly discussing void function)
+ => collection of code that does a specific task
+ => first: return type --> type of data that the function is going to return to the user
+        --> void (no info returned)
+ => second: name for function
+        e.g. void sayHi()
+                {
+                    printf("Hello User");
+                }
+
+=> calling function = executing code inside it
+    -> must call the function in the main function
+ 
+ sayHi() has no parameter; suppose we want a more personalised message
+        ==>PARAMETER!
+
+        e.g. 
+        int main()
+            {
+                char myName[10];
+                printf("Enter your name: ");
+                scanf("%s", myName);
+                sayHi(myName); 
+            }    
+
+        void sayHi(char name[])
+            {
+                printf("Hello %s", name);
+            }
+
+        output:
+            Enter your name: sneha
+            Hello sneha
+
+    ==> Mulitple parameters can also be accepted:
+        e.g. void sayHi(char name[], int age)
+
+****************************************************************************************************************
+RETURN FUNCTIONS:
+    --> function returns a value back
+    --> return value function must be above the function that calls it 
+
+        Return types: can be any data type  
+            e.g.  
+                int cubeFunction(int num)//function to cube a number
+                    {
+                        int result = num*num*num;
+                        return result; //IMPORTANT: return keyword breaks user out of a function (nothing below this will be executed)
+                    }
+
+                int main()
+                    {
+                        printf("Answer: %d", cubeFunction(2));
+                    }    
+
+
+==> PROTOTYPING:
+    if you define your function e.g. cubeFunction after the main method where it is getting called, the system will throw an error
+    solution is to either define function before (like we did)
+             OR it is to PROTOTYPE: which means you just declare the SIGNATURE OF THE FUNCTION (int cubeFunction(int num)) before the function 
+                and define the actual function later
+
+                e.g. 
+                    int cubeFunction(int num);
+
+                int main()
+                    {
+                        printf("Answer: %d", cubeFunction(2));
+                    }    
+
+                int cubeFunction(int num)//function to cube a number
+                    {
+                        int result = num*num*num;
+                        return result; //IMPORTANT: return keyword breaks user out of a function (nothing below this will be executed)
+                    }
+
+****************************************************************************************************************
+IF statement:
+
+Basic Syntax for if-elseif-else clauses
+--------------------------------------
+    ==> if()
+            {
+                --code--
+            }
+        
+        elseif()
+            {
+                --code--
+            }
+        
+        else
+            {
+                --code--
+            }
+
+    Note: && (both conditions must be true) and || (either one condition must be true)
+
+****************************************************************************************************************
+SWITCH STATEMENT:
+    --> special type of if statement that helps to compare one value to multiple diff values
+      
+        SYNTAX:
+        switch(variableName)
+        {
+            case (compared_value):
+                --code--
+            case (compared_vale):
+                --code--
+            default: //if value not equal to any of the above
+
+        }
+ e.g. code:
+    int main()
+    {
+        char grade = 'A';
+
+        switch(grade)
+        {
+            case 'A': //in the case that grade = A
+                printf("You did amazing!");
+                break; //breaks out of switch()
+
+            case 'F':
+                printf("You failed :(");
+                break;
+            
+            default: //similar to else() => executes when none of the conditions are met
+              printf("Re-enter your grade");  
+        }
+    } 
+
+****************************************************************************************************************
+STRUCTS:
+    => data structure to store group of datatypes (int, double, string etc)
+    => used to model real world entitites
+    => array cannot store different datatypes, and cannot name those datatypes (in next example look at name, age, major, gpa) but a struct can
+    => can create multiple instances of the same struct (like multiple students)
+
+    STRUCT IS LIKE AN OBJECT IN JAVA!!!
+        Note: not a function!
+    
+    syntax: struct structName
+            {
+
+            }
+
+            //(outside main function)
+    
+    e.g. describe a student with a struct
+
+    NOTE: cannot directly pass a string when creating a struct based variable, so need to use strcopy()
+        syntax: strcopy(structName.datatypename, "--string--")
+
+    #include <stdio.h>
+#include <stdlib.h>
+
+
+
+int main()
+    {
+        struct Student Person1; // created a container called Person1 which can store name, major, age, gpa
+        Person1.age = 19;
+        Person1.gpa = 8.0;
+        //Cannot directly enter string "djgnkjn" like so
+        //Use strcopy() function
+        strcopy(Person1.name, "Dave");
+        strcopy(Person1.major, "ECE");
+
+        struct Student Personw; // created a second container called Person2 which can store name, major, age, gpa
+        Person2.age = 21;
+        Person2.gpa = 9.8;
+        //Cannot directly enter string "djgnkjn" like so
+        //Use strcopy() function
+        strcopy(Person2.name, "Marion");
+        strcopy(Person2.major, "EEE");
+
+
+        printf("%s", Person1.name);
+    }    
